@@ -26,15 +26,10 @@ class Welcome(Controller):
    
     def index(self):
         """
-        A loaded model is accessible through the models attribute 
-        self.models['WelcomeModel'].get_users()
+        A loaded model is accessible through the models attribute
+        """ 
+        self.models['WelcomeModel'].add_mock_user()
+        users = self.models['WelcomeModel'].get_users()
         
-        self.models['WelcomeModel'].add_message()
-        # messages = self.models['WelcomeModel'].grab_messages()
-        # user = self.models['WelcomeModel'].get_user()
-        # to pass information on to a view it's the same as it was with Flask
-        
-        # return self.load_view('index.html', messages=messages, user=user)
-        """
-        return self.load_view('index.html')
+        return self.load_view('index.html', users=users)
 
